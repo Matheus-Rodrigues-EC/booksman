@@ -18,7 +18,7 @@ export async function getBook(id: number) {
 }
 
 export async function createBook(book: CreateBook) {
-  return await booksRepository.createBook(book);
+  return await booksRepository.createBook({...book, purchaseDate: new Date(book.purchaseDate)});
 }
 
 export async function reviewBook(review: CreateReview) {
